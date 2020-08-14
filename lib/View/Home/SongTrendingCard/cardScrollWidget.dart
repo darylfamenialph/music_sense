@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import './songDetails.dart';
-import '../Animations/fadeAnimation.dart';
+//import '../../Animations/fadeAnimation.dart';
 
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
@@ -53,8 +53,7 @@ class CardScrollWidget extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
-              child: MyFadeIn(
-                              child: Container(
+              child: Container(
                   decoration: BoxDecoration(color: Colors.white, boxShadow: [
                     BoxShadow(
                         color: Colors.black12,
@@ -75,7 +74,6 @@ class CardScrollWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
             ),
           );
           cardList.add(cardItem);

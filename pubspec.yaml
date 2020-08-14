@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   font_awesome_flutter: ^8.2.0
+  carousel_slider: ^1.3.0
 
 dev_dependencies:
   flutter_test:
@@ -97,3 +98,11 @@ flutter:
     - family: CustomIcons
       fonts:
         - asset: assets/custom_icons.ttf
+
+    - family: Nunito-Regular
+      fonts:
+        - asset: assets/Nunito-Regular.ttf
+
+    - family: Nunito-ExtraLight
+      fonts:
+        - asset: assets/Nunito-ExtraLight.ttf
