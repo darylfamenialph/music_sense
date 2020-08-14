@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:music_sense/View/Utilities/FrostedContainer.dart';
 
 import '../../../Data/data.dart';
-import '../../Utilities/customIcons.dart';
-import '../../Home/SongTrendingCard/cardScrollWidget.dart';
-import '../../MusicViewWidget/widget.dart';
-
+import '../../Utilities/CustomIcons.dart';
+import '../SongTrendingCard/CardScrollWidget.dart';
+import '../../MusicViewWidget/MusicWidget.dart';
+import '../../Utilities/FrostedBottomSheetView.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -15,6 +16,10 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var currentPage = images.length - 1.0;
+  
+
+ 
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +29,31 @@ class _MyAppState extends State<MyApp> {
         currentPage = controller.page;
       });
     });
+
+
+   Widget _container = Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                   // color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))
+                  ),
+                  child:
+                   Align(
+                     alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: FlatButton(
+                        onPressed: () {
+                          _tripEditModalBottomSheet(context);
+                        },
+                        color: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text("Recently Added", style: TextStyle(color: Colors.white)),
+                  ),
+                      ),
+                   )
+                );
 
     return Container(
       decoration: BoxDecoration(
@@ -108,29 +138,7 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 50.0,),
               Padding(
                 padding: EdgeInsets.only( top: 20.0 ),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))
-                  ),
-                  child:
-                   Align(
-                     alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: RaisedButton(
-                        onPressed: () {
-                          _tripEditModalBottomSheet(context);
-                        },
-                        color: Colors.white.withOpacity(0.3),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text("Recently Added"),
-                  ),
-                      ),
-                   )
-                ),
+                child: FrostedContainer(child: _container,),
               ),
             ],
           ),
@@ -138,35 +146,11 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+  
 
   void _tripEditModalBottomSheet(context){
     showModalBottomSheet(context: context, builder: (BuildContext context){
-      return Container(
-        height: MediaQuery.of(context).size.height * 0.85,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Align(
-                alignment: Alignment.centerRight,
-                child: 
-                  IconButton(
-                    icon: Icon(Icons.close, color:Colors.grey, size: 25),
-                    onPressed: (){
-                      Navigator.of(context).pop();
-                    },
-                  ),
-              ),
-              SizedBox(height: 50.0,),
-              ViewWidget(),
-            ],
-          ),
-        ),
-      );
+      return FrostedBottomSheetView(ViewWidget());
 
     });
   }

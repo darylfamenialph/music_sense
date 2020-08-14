@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 
 import '../../Data/data.dart';
-import 'TitleBar/widgetTitle.dart';
+import 'TitleBar/TitleWidget.dart';
 
 // void main() => runApp(MaterialApp(
 //       home: ViewWidget(),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../Data/data.dart';
-import '../../Utilities/frostedIconButton.dart';
+import '../../Utilities/FrostedIconButton.dart';
 
 
 class SongDetailsWidget extends StatelessWidget{

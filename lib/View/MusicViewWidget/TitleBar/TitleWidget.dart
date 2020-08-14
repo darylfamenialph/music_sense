@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import './TextWidget.dart';
+import 'TextWidget.dart';
 
 
 class WidgetTitle extends StatelessWidget{
