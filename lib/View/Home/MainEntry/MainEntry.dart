@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:music_sense/View/Utilities/FrostedContainer.dart';
+import 'dart:ui';
 
 import '../../../Data/data.dart';
-import '../../Utilities/CustomIcons.dart';
-import '../SongTrendingCard/CardScrollWidget.dart';
-import '../../MusicViewWidget/MusicWidget.dart';
-import '../../Utilities/FrostedBottomSheetView.dart';
+import './TrendingBarContent.dart';
+import '../SongTrendingCard/SongTrendCard.dart';
+import '../BottomBar/BottomBarLayout.dart';
+import './TopSongs.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -13,13 +13,8 @@ class MyApp extends StatefulWidget {
 }
 
 
-
 class _MyAppState extends State<MyApp> {
   var currentPage = images.length - 1.0;
-  
-
- 
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,116 +26,45 @@ class _MyAppState extends State<MyApp> {
     });
 
 
-   Widget _container = Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                   // color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))
-                  ),
-                  child:
-                   Align(
-                     alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: FlatButton(
-                        onPressed: () {
-                          _tripEditModalBottomSheet(context);
-                        },
-                        color: Colors.transparent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text("Recently Added", style: TextStyle(color: Colors.white)),
-                  ),
-                      ),
-                   )
-                );
-
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [
-            Color(0xFF1b1e44),
-            Color(0xFF2d3447),
-          ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              tileMode: TileMode.clamp)),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: 50.0, bottom: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Trending",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 46.0,
-                          fontFamily: "Calibre-Semibold",
-                          letterSpacing: 1.0,
-                        )),
-                    IconButton(
-                      icon: Icon(
-                        CustomIcons.option,
-                        size: 12.0,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {},
-                    )
-                  ],
-                ),
+         image: DecorationImage(
+            image: AssetImage("assets/future_nostalgia.jpg"),
+            fit: BoxFit.cover,
+          ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFff6e6e),
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 22.0, vertical: 6.0),
-                          child: Text("Top Songs",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    Text("International",
-                        style: TextStyle(color: Colors.blueAccent))
-                  ],
-                ),
-              ),
-              Stack(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
+              child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+              child: SingleChildScrollView(
+              child: Column(
                 children: <Widget>[
-                  CardScrollWidget(currentPage: currentPage, images: images, title: title,),
-                  Positioned.fill(
-                    child: PageView.builder(
-                      itemCount: images.length,
-                      controller: controller,
-                      reverse: true,
-                      itemBuilder: (context, index) {
-                        return Container();
-                      },
-                    ),
-                  )
+                  TrendingBarContent(),
+                  TopSongs(),
+                  Stack(
+                    children: <Widget>[
+                      CardScrollWidget(currentPage: currentPage, images: images, title: title,),
+                      Positioned.fill(
+                        child: PageView.builder(
+                          itemCount: images.length,
+                          controller: controller,
+                          reverse: true,
+                          itemBuilder: (context, index) {
+                            return Container();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only( top: 50.0 ),
+                    child: BottomBarLayout(), //FrostedContainer(child: BottomBarWidget(),),
+                  ),
                 ],
               ),
-              SizedBox(height: 50.0,),
-              Padding(
-                padding: EdgeInsets.only( top: 20.0 ),
-                child: FrostedContainer(child: _container,),
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -148,11 +72,6 @@ class _MyAppState extends State<MyApp> {
   }
   
 
-  void _tripEditModalBottomSheet(context){
-    showModalBottomSheet(context: context, builder: (BuildContext context){
-      return FrostedBottomSheetView(ViewWidget());
-
-    });
-  }
+ 
 
 }

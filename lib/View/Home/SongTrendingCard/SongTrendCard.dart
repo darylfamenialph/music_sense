@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'SongDetails.dart';
+import 'SongTrendCardContent.dart';
 //import '../../Animations/fadeAnimation.dart';
 
 var cardAspectRatio = 12.0 / 16.0;
