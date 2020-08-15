@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_sense/View/GridView/GridViewLayout.dart';
+import 'package:music_sense/View/Home/BottomBar/FrostedBottomSheetView.dart';
+import 'package:music_sense/View/MusicViewWidget/MusicWidgetLayout.dart';
 import '../../Utilities/CustomIcons.dart';
 
 class TrendingBarContent extends StatelessWidget{
@@ -24,11 +27,18 @@ class TrendingBarContent extends StatelessWidget{
                           size: 12.0,
                           color: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          _tripEditModalBottomSheet(context);
+                        },
                       )
                     ],
                   ),
                 );
 
+  }
+
+  
+ void _tripEditModalBottomSheet(context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ViewWidget()));
   }
 }

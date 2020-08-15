@@ -37,7 +37,7 @@ class SongDetailsWidget extends StatelessWidget{
               icon: Icon(FontAwesomeIcons.play,
                 color: Colors.blueGrey,),
               onPressed: () {
-                print("Play");
+              // _tripEditModalBottomSheet(context);
               }),
                 ),
             ),
@@ -45,5 +45,8 @@ class SongDetailsWidget extends StatelessWidget{
         ],
       );
   }
+
+
+
 
 }

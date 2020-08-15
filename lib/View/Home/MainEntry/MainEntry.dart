@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_sense/State/Home/TrendingCardState.dart';
+import 'package:provider/provider.dart';
 import 'dart:ui';
 
 import '../../../Data/data.dart';
@@ -14,22 +16,24 @@ class MyApp extends StatefulWidget {
 
 
 class _MyAppState extends State<MyApp> {
-  var currentPage = images.length - 1.0;
-
+  //var currentPage = images.length - 1.0;
+  var currentIndex = images.length - 1.0;
+  
   @override
   Widget build(BuildContext context) {
+    var pageState = Provider.of<TrendingCardState>(context, listen: false);
     PageController controller = PageController(initialPage: images.length - 1);
     controller.addListener(() {
+      pageState.updateIndex(controller.page);
       setState(() {
-        currentPage = controller.page;
+        currentIndex = controller.page;
       });
     });
-
 
     return Container(
       decoration: BoxDecoration(
          image: DecorationImage(
-            image: AssetImage("assets/future_nostalgia.jpg"),
+            image: AssetImage(images[currentIndex.toInt()]),
             fit: BoxFit.cover,
           ),
               ),
@@ -45,7 +49,11 @@ class _MyAppState extends State<MyApp> {
                   TopSongs(),
                   Stack(
                     children: <Widget>[
-                      CardScrollWidget(currentPage: currentPage, images: images, title: title,),
+                      Consumer<TrendingCardState>(
+                        builder: (context, data, child){
+                        return CardScrollWidget(currentPage: data.getCurrentIndex(), images: images, title: title,);
+                        },),
+                      
                       Positioned.fill(
                         child: PageView.builder(
                           itemCount: images.length,

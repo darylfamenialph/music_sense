@@ -5,6 +5,9 @@ import 'TextWidget.dart';
 
 
 class WidgetTitle extends StatelessWidget{
+  final title;
+  final subtitle;
+  WidgetTitle({@required this.title, @required this.subtitle});
 
   @override
   Widget build(BuildContext context){
@@ -13,7 +16,7 @@ class WidgetTitle extends StatelessWidget{
       width: double.infinity,
       height: 60,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 250, 70, 91),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0) ),
       ),
       child: Padding(
@@ -29,8 +32,8 @@ class WidgetTitle extends StatelessWidget{
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-               TitleTextWidget(title: "Backstreet Boys Essentials", fontSize: 12.0, isBold: true),
-              SizedBox(height: 5.0,),
+               TitleTextWidget(title: "Playlist", fontSize: 12.0, isBold: true),
+               SizedBox(height: 5.0,),
                TitleTextWidget(title: "Apple Music", fontSize: 10.0, isBold: false),
               ],
             ),
