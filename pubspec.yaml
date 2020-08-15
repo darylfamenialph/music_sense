@@ -56,6 +56,7 @@ flutter:
     - assets/future_nostalgia.jpg
     - assets/after_hours.jfif
     - assets/marron.jpg
+    - assets/trending_songs_metadata.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

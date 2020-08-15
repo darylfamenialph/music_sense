@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 
-import '../../Data/data.dart';
 import 'MusicWidgetCard.dart';
 
 // void main() => runApp(MaterialApp(
@@ -24,7 +23,7 @@ class ViewWidget extends StatefulWidget {
 class _ViewWidgetState extends State<ViewWidget> {
   int _currentIndex = 0;
 
-  List imgList = images;
+  List imgList = [];
 
   List<T> map<T>(List list, Function handler){
     List<T> result = [];
@@ -39,7 +38,7 @@ class _ViewWidgetState extends State<ViewWidget> {
     return Container(
       decoration: BoxDecoration(
          image: DecorationImage(
-            image: AssetImage(images[2]),
+            image: AssetImage(''),
             fit: BoxFit.cover,
           ),
       ),

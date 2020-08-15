@@ -1,0 +1,37 @@
+[{
+    "song_title" : "Cardigan",
+    "song_artist" : "Taylor Swift",
+    "song_album" : "Folklore",
+    "released_date" : "2020",
+    "album_art" : "assets/folklore.png",
+    "song_lyrics" : ""
+
+},
+{
+    "song_title" : "Blending Lights",
+    "song_artist" : "The Weekend",
+    "song_album" : "After Hours",
+    "released_date" : "2019",
+    "album_art" : "assets/after_hours.jfif",
+    "song_lyrics" : ""
+
+},
+{
+    "song_title" : "Nobody's Love",
+    "song_artist" : "Maroon 5",
+    "song_album" : "Album Single",
+    "released_date" : "2020",
+    "album_art" : "assets/marron.jpg",
+    "song_lyrics" : ""
+
+},
+{
+    "song_title" : "Physical",
+    "song_artist" : "Dua Lipa",
+    "song_album" : "Future Nostalgia",
+    "released_date" : "2020",
+    "album_art" : "assets/future_nostalgia.jpg",
+    "song_lyrics" : ""
+
+}
+]

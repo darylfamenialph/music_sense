@@ -27,4 +27,10 @@ class TrendingSongsModel {
   get albumArt => this.album_art;
   get songLyrics => this.song_lyrics;
 
+  @override
+  String toString()
+  {
+    return '{ ${this.song_title},${this.song_artist},${this.song_album},${this.released_date},${this.album_art},${this.song_lyrics} }';
+  }
+  
 }

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../Data/data.dart';
+
 import '../../Utilities/FrostedIconButton.dart';
 
 
 class SongDetailsWidget extends StatelessWidget{
-  final int titleIndex;
-  SongDetailsWidget({this.titleIndex});
+  final title;
+  //final int titleIndex;
+  SongDetailsWidget({this.title});
 
   @override
   Widget build(BuildContext context){
@@ -17,7 +18,7 @@ class SongDetailsWidget extends StatelessWidget{
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: 16.0, vertical: 8.0),
-            child: Text(title[titleIndex],
+            child: Text(title,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
