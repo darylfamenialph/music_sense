@@ -23,6 +23,12 @@
             "program": "lib/View/MusicList/MusicListLayout.dart",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "SongDetailsLayoutTest",
+            "program": "lib/View/SongDetails/SongDetailsLayout.dart",
+            "request": "launch",
+            "type": "dart"
         }
     ]
 }
