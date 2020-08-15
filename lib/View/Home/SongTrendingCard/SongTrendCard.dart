@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_sense/Presenter/TrendingSongCards/TrendingSongCardsPresenter.dart';
 import 'dart:math';
 
 import 'SongTrendCardContent.dart';
@@ -8,6 +9,8 @@ var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class CardScrollWidget extends StatelessWidget {
+  var _presenter = TrendingSongCardsPresenter();
+
   final currentPage;
   final images;
   final title;
@@ -16,6 +19,8 @@ class CardScrollWidget extends StatelessWidget {
 
 
   CardScrollWidget({@required this.currentPage, @required this.images, @required  this.title});
+
+  
 
   @override
   Widget build(BuildContext context) {

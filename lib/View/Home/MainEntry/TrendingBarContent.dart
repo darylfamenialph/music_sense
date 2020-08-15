@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_sense/View/GridView/GridViewLayout.dart';
-import 'package:music_sense/View/Home/BottomBar/FrostedBottomSheetView.dart';
 import 'package:music_sense/View/MusicViewWidget/MusicWidgetLayout.dart';
 import '../../Utilities/CustomIcons.dart';
 

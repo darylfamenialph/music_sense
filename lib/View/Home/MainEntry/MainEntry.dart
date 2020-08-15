@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:music_sense/Model/TrendingSongsModel.dart';
+import 'package:music_sense/Presenter/TrendingSongCards/TrendingSongCardsPresenter.dart';
 import 'package:music_sense/State/Home/TrendingCardState.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui';
@@ -17,17 +22,34 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   //var currentPage = images.length - 1.0;
+  var _presenter;
+  var _imagesList;
+  
+
   var currentIndex = images.length - 1.0;
   
+  //var _presenter = TrendingSongCardsPresenter();
+  //var x =  _presenter.fetchTrendsMetadata();
+
+  @override
+  void initState(){
+    _presenter = TrendingSongCardsPresenter();
+    _presenter.fetchTrendsMetadata().then((value) {
+      _imageLists = value;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var pageState = Provider.of<TrendingCardState>(context, listen: false);
     PageController controller = PageController(initialPage: images.length - 1);
     controller.addListener(() {
-      pageState.updateIndex(controller.page);
-      setState(() {
-        currentIndex = controller.page;
-      });
+        pageState.updateIndex(controller.page);
+        setState(() {
+          currentIndex = controller.page;
+          print(_imagesList);
+        });
     });
 
     return Container(
