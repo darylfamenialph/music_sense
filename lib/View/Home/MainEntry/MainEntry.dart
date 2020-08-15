@@ -24,7 +24,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var currentPage = 3;
   TrendingSongCardsPresenter _presenter;
-  //var imagesList;
   List<String> _imageLists;
   var currentIndex = 3.0;
   _MyAppState(this._presenter);

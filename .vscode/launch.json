@@ -17,6 +17,12 @@
             "program": "lib/View/MusicViewWidget/widget.dart",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "MusicListLayoutTest",
+            "program": "lib/View/MusicList/MusicListLayout.dart",
+            "request": "launch",
+            "type": "dart"
         }
     ]
 }

@@ -7,10 +7,7 @@ import 'package:music_sense/View/Utilities/Constants.dart';
 
 import 'MusicWidgetCard.dart';
 
-// void main() => runApp(MaterialApp(
-//       home: ViewWidget(),
-//       debugShowCheckedModeBanner: false,
-//     ));
+
 
 class ViewWidget extends StatefulWidget {
   
@@ -67,25 +64,29 @@ class _ViewWidgetState extends State<ViewWidget> {
                   items: _listContent.map((content){
                     return Builder(
                       builder: (BuildContext context){
-                        return  Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal:10.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                              boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black12,
-                                  offset: Offset(3.0, 6.0),
-                                  blurRadius: 10.0)
-                            ]
-                            ),
-                            child: Column(
-                                children: [
-                                   MusicWidgetCard(title: content,icon: _mapContent[content],),
-                                ],
+                        return  FlatButton(
+                          onPressed: (){},
+                           padding: EdgeInsets.all(0.0),
+                              child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.symmetric(horizontal:10.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.3),
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black12,
+                                    offset: Offset(3.0, 6.0),
+                                    blurRadius: 10.0)
+                              ]
                               ),
-                          );
+                              child: Column(
+                                  children: [
+                                     MusicWidgetCard(title: content,icon: _mapContent[content],),
+                                  ],
+                                ),
+                            ),
+                        );
                       },
                     );
                   }).toList(),
