@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:music_sense/View/Utilities/Constants.dart';
 
 
 import 'MusicWidgetCard.dart';
@@ -23,7 +24,8 @@ class ViewWidget extends StatefulWidget {
 class _ViewWidgetState extends State<ViewWidget> {
   int _currentIndex = 0;
 
-  List imgList = [];
+  var _listContent = Constants.listContent;
+  var _mapContent = Constants.mapContent;
 
   List<T> map<T>(List list, Function handler){
     List<T> result = [];
@@ -38,7 +40,7 @@ class _ViewWidgetState extends State<ViewWidget> {
     return Container(
       decoration: BoxDecoration(
          image: DecorationImage(
-            image: AssetImage(''),
+            image: AssetImage('assets/future_nostalgia.jpg'),
             fit: BoxFit.cover,
           ),
       ),
@@ -62,7 +64,7 @@ class _ViewWidgetState extends State<ViewWidget> {
                       _currentIndex = index;
                     });
                   },
-                  items: imgList.map((imgUrl){
+                  items: _listContent.map((content){
                     return Builder(
                       builder: (BuildContext context){
                         return  Container(
@@ -80,7 +82,7 @@ class _ViewWidgetState extends State<ViewWidget> {
                             ),
                             child: Column(
                                 children: [
-                                  MusicWidgetCard(),
+                                   MusicWidgetCard(title: content,icon: _mapContent[content],),
                                 ],
                               ),
                           );
@@ -91,7 +93,7 @@ class _ViewWidgetState extends State<ViewWidget> {
                   SizedBox(height: 20,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: map<Widget>(imgList,(index, url){
+                    children: map<Widget>(_listContent,(index, url){
                       return Container(
                         width: 5.0,
                         height: 5.0,

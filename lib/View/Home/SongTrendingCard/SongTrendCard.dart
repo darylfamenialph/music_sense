@@ -25,7 +25,6 @@ class CardScrollWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var titleArtList = presenter.convertToTitleArtMap(songModel).entries.toList();
-    print(titleArtList[0].key);
     return new AspectRatio(
       aspectRatio: widgetAspectRatio,
       child: LayoutBuilder(builder: (context, contraints) {
