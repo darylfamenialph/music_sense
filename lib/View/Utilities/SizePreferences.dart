@@ -6,12 +6,12 @@ class SizePreferences {
 
   SizePreferences(this.context);
 
-  double GetMediaHeight()
+  double getMediaHeight()
   {
     return MediaQuery.of(context).size.height;
   }
 
-  double GetMediaWidth()
+  double getMediaWidth()
   {
     return MediaQuery.of(context).size.width;
   }

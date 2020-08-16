@@ -10,7 +10,6 @@ import '../../Utilities/FrostedIconButton.dart';
 class SongDetailsWidget extends StatelessWidget{
   final title;
   final songModel;
-  //final int titleIndex;
   SongDetailsWidget({@required this.title,@required this.songModel});
 
   @override
@@ -38,7 +37,6 @@ class SongDetailsWidget extends StatelessWidget{
               icon: Icon(FontAwesomeIcons.play,
                 color: Colors.blueGrey,),
               onPressed: () {
-                print("Play Clicked");
                Navigator.push(context, MaterialPageRoute(
                  builder: (context)  => SongDetailsLayout(
                     presenter: SongDetailPresenter(),

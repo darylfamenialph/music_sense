@@ -26,14 +26,13 @@ class WidgetTitle extends StatelessWidget{
             Container(
               width: 30,
               height: 30,
-              child: icon, //Image.asset("assets/folklore.png",fit:BoxFit.fill),
+              child: icon, 
             ),
             SizedBox(width: 20.0,),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                TitleTextWidget(title: title, fontSize: 20.0, isBold: false),
-              // SizedBox(height: 5.0,),
               ],
             ),
           ],

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:music_sense/View/MusicList/MusicListLayout.dart';
 import 'package:music_sense/View/Utilities/Constants.dart';
 import 'package:music_sense/View/Utilities/SizePreferences.dart';
 
@@ -12,14 +13,18 @@ import 'MusicWidgetCard.dart';
 
 class ViewWidget extends StatefulWidget {
   
-  
+  final model;
+  ViewWidget(this.model);
 
 
   @override
-  _ViewWidgetState createState() => _ViewWidgetState();
+  _ViewWidgetState createState() => _ViewWidgetState(model);
 }
 
 class _ViewWidgetState extends State<ViewWidget> {
+  final model;
+  _ViewWidgetState(this.model);
+
   int _currentIndex = 0;
 
   var _listContent = Constants.listContent;
@@ -66,7 +71,9 @@ class _ViewWidgetState extends State<ViewWidget> {
                     return Builder(
                       builder: (BuildContext context){
                         return  FlatButton(
-                          onPressed: (){},
+                          onPressed: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => MusicListLayoutWidget(model: model, headerTitle: content,)));
+                          },
                            padding: EdgeInsets.all(0.0),
                               child: Container(
                               width: MediaQuery.of(context).size.width,
@@ -110,13 +117,12 @@ class _ViewWidgetState extends State<ViewWidget> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    width: SizePreferences(context).GetMediaWidth() * 0.5,
+                    width: SizePreferences(context).getMediaWidth() * 0.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       color: Colors.white.withOpacity(0.1)
                     ),
                     child: FlatButton(
-                     // color: Colors.white.withOpacity(0.1),
                       child: Text("Back Home", style: TextStyle(color: Colors.black45),),
                       onPressed: (){
                         Navigator.of(context).pop();

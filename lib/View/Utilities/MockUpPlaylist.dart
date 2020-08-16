@@ -12,7 +12,6 @@ class MockUpPlaylistWidgets extends StatelessWidget{
                     MockUpPlaylistContent(),
                     MockUpPlaylistContent(),
                     MockUpPlaylistContent(),
-                 //Text("asdfaf"),
                ],
              );
   }
