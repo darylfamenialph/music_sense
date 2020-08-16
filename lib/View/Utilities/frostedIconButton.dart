@@ -12,8 +12,8 @@ class FrostedIconForButton extends StatelessWidget {
         child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: Container(
-                width: 50.0,
-                height: 50.0,
+                // width: 50.0,
+                // height: 50.0,
                 decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
                     shape: BoxShape.rectangle),

@@ -25,7 +25,7 @@ class CardScrollWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var titleArtList = presenter.convertToTitleArtMap(songModel).entries.toList();
-    return new AspectRatio(
+    return  AspectRatio(
       aspectRatio: widgetAspectRatio,
       child: LayoutBuilder(builder: (context, contraints) {
         double width = contraints.maxWidth;
@@ -73,8 +73,8 @@ class CardScrollWidget extends StatelessWidget {
                       children: <Widget>[
                         Image.asset(titleArtList[i].value, fit: BoxFit.cover),
                         Align(
-                          alignment: Alignment.bottomLeft,
-                          child: SongDetailsWidget(title: titleArtList[i].key,),
+                          alignment: Alignment.bottomCenter,
+                          child: SongDetailsWidget(title: titleArtList[i].key, songModel: songModel,),
                         )
                       ],
                     ),
@@ -90,4 +90,5 @@ class CardScrollWidget extends StatelessWidget {
       }),
     );
   }
+
 }

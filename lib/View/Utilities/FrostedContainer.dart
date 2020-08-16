@@ -4,7 +4,7 @@ import 'dart:ui';
 
 class FrostedContainer extends StatelessWidget {
   final Widget child;
-  final customBorderRadius;
+  final bool customBorderRadius;
   final BorderRadius bRadius;
   final double widthFactor;
   

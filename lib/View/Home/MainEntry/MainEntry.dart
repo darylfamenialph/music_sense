@@ -14,7 +14,7 @@ import './TopSongs.dart';
 
 
 class MyApp extends StatefulWidget {
-  TrendingSongCardsPresenter presenter;
+  final TrendingSongCardsPresenter presenter;
   MyApp({@required this.presenter});
   @override
   _MyAppState createState() => new _MyAppState(presenter);
@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   var currentPage = 3;
   TrendingSongCardsPresenter _presenter;
   List<String> _imageLists;
+  List<dynamic> _model;
   var currentIndex = 3.0;
   _MyAppState(this._presenter);
 
@@ -46,6 +47,7 @@ class _MyAppState extends State<MyApp> {
                     return Center( child: new CircularProgressIndicator() );
                   else { 
                    _imageLists = _presenter.getImageLists(snapshot.data);
+                   _model = snapshot.data;
                 return Container(
         decoration: BoxDecoration(
            image: DecorationImage(
@@ -76,7 +78,11 @@ class _MyAppState extends State<MyApp> {
                               controller: controller,
                               reverse: true,
                               itemBuilder: (context, index) {
-                                return Container();
+                                return InkWell(
+                                  onTap: (){ 
+                                   _presenter.pushToSongPreview(context, _model[index] );
+                                     }, 
+                                  child: Container());
                               },
                             ),
                           )
@@ -84,7 +90,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Padding(
                         padding: EdgeInsets.only( top: 50.0 ),
-                        child: BottomBarLayout(), //FrostedContainer(child: BottomBarWidget(),),
+                        child: BottomBarLayout(), 
                       ),
                     ],
                   ),

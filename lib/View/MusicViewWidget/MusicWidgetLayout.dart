@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:music_sense/View/Utilities/Constants.dart';
+import 'package:music_sense/View/Utilities/SizePreferences.dart';
 
 
 import 'MusicWidgetCard.dart';
@@ -37,7 +38,7 @@ class _ViewWidgetState extends State<ViewWidget> {
     return Container(
       decoration: BoxDecoration(
          image: DecorationImage(
-            image: AssetImage('assets/future_nostalgia.jpg'),
+            image: AssetImage('assets/song_album_art/future_nostalgia.jpg'),
             fit: BoxFit.cover,
           ),
       ),
@@ -109,7 +110,7 @@ class _ViewWidgetState extends State<ViewWidget> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: SizePreferences(context).GetMediaWidth() * 0.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       color: Colors.white.withOpacity(0.1)

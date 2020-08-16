@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:music_sense/Presenter/SongDetails/SongDetailPresenter.dart';
+import 'package:music_sense/View/SongDetails/SongDetailsLayout.dart';
 
 
 import '../../Utilities/FrostedIconButton.dart';
@@ -7,8 +9,9 @@ import '../../Utilities/FrostedIconButton.dart';
 
 class SongDetailsWidget extends StatelessWidget{
   final title;
+  final songModel;
   //final int titleIndex;
-  SongDetailsWidget({this.title});
+  SongDetailsWidget({@required this.title,@required this.songModel});
 
   @override
   Widget build(BuildContext context){
@@ -24,9 +27,6 @@ class SongDetailsWidget extends StatelessWidget{
                     fontSize: 25.0,
                     fontFamily: "SF-Pro-Text-Regular")),
           ),
-          SizedBox(
-            height: 10.0,
-          ),
           Padding(
             padding: const EdgeInsets.only(
                 left: 12.0, bottom: 12.0),
@@ -38,7 +38,12 @@ class SongDetailsWidget extends StatelessWidget{
               icon: Icon(FontAwesomeIcons.play,
                 color: Colors.blueGrey,),
               onPressed: () {
-              // _tripEditModalBottomSheet(context);
+                print("Play Clicked");
+               Navigator.push(context, MaterialPageRoute(
+                 builder: (context)  => SongDetailsLayout(
+                    presenter: SongDetailPresenter(),
+                    model: songModel,
+               )));
               }),
                 ),
             ),
