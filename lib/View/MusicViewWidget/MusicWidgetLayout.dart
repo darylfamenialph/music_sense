@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:music_sense/Presenter/MusicList/MusicListPresenter.dart';
+import 'package:music_sense/View/MusicList/MusicListLayout.dart';
 import 'package:music_sense/View/Utilities/Constants.dart';
 import 'package:music_sense/View/Utilities/SizePreferences.dart';
 
@@ -12,14 +14,18 @@ import 'MusicWidgetCard.dart';
 
 class ViewWidget extends StatefulWidget {
   
-  
+  final model;
+  ViewWidget(this.model);
 
 
   @override
-  _ViewWidgetState createState() => _ViewWidgetState();
+  _ViewWidgetState createState() => _ViewWidgetState(model);
 }
 
 class _ViewWidgetState extends State<ViewWidget> {
+  final model;
+  _ViewWidgetState(this.model);
+
   int _currentIndex = 0;
 
   var _listContent = Constants.listContent;
@@ -66,7 +72,9 @@ class _ViewWidgetState extends State<ViewWidget> {
                     return Builder(
                       builder: (BuildContext context){
                         return  FlatButton(
-                          onPressed: (){},
+                          onPressed: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => MusicListLayoutWidget(model: model)));
+                          },
                            padding: EdgeInsets.all(0.0),
                               child: Container(
                               width: MediaQuery.of(context).size.width,

@@ -11,5 +11,8 @@ abstract class ISongDetailPresenter {
   String getSongArt(TrendingSongsModel model);
   String getSongLyrics(TrendingSongsModel model);
   void backToContext(BuildContext context);
+
+  
+
 }
 

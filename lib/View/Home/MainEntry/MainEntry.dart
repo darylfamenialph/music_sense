@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                 child:  SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
-                      TrendingBarContent(),
+                      TrendingBarContent(snapshot.data),
                       TopSongs(),
                       Stack(
                         children: <Widget>[

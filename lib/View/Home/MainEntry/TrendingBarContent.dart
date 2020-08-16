@@ -3,6 +3,8 @@ import 'package:music_sense/View/MusicViewWidget/MusicWidgetLayout.dart';
 import '../../Utilities/CustomIcons.dart';
 
 class TrendingBarContent extends StatelessWidget{
+  final List<dynamic> model;
+  TrendingBarContent(this.model);
 
   @override
   Widget build(BuildContext context){
@@ -37,6 +39,6 @@ class TrendingBarContent extends StatelessWidget{
 
   
  void _tripEditModalBottomSheet(context){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ViewWidget()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ViewWidget(model)));
   }
 }
