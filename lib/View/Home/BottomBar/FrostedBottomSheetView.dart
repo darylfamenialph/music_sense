@@ -62,9 +62,26 @@ class FrostedBottomSheetView extends StatelessWidget{
                       ),
                     ],
                   ),
+                  SizedBox(height: 50.0,),
+                  Center(
+                    child: Column(
+                      children: <Widget>[
+                        Text("This Page is not yet implemented"),
+                        SizedBox(height: 10.0,),
+                        Container(
+                          child: FlatButton(
+                            color: Colors.black.withOpacity(0.2),
+                            onPressed: (){
+                              Navigator.of(context).pop();
+                            },
+                          child: Text("Go Back", style: TextStyle(color: Colors.white60),),
+                    ),
+                  ),
+                      ],
+                    ),
+                  ),
                   
-                  SizedBox(height: 10.0,),
-                 viewWidget,
+                 //viewWidget,
                 ],
               ),
             ),

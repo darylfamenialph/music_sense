@@ -9,10 +9,12 @@ abstract class ISongDetailPresenter {
   String getSongArtist(TrendingSongsModel model);
   String getSongAlbum(TrendingSongsModel model);
   String getSongArt(TrendingSongsModel model);
-  String getSongLyrics(TrendingSongsModel model);
+  String getSongLyricsOriginal(TrendingSongsModel model);
+  String getSongLyricsTranscribed(TrendingSongsModel model);
+  String getSongLyricsTranslate(TrendingSongsModel model);
   void backToContext(BuildContext context);
 
-  
+
 
 }
 

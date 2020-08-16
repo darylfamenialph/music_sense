@@ -22,8 +22,8 @@ class SongDetailPresenter extends BasePresenter implements ISongDetailPresenter{
     }
   
     @override
-    String getSongLyrics(TrendingSongsModel model) {
-      return model.songLyrics;
+    String getSongLyricsOriginal(TrendingSongsModel model) {
+      return model.songLyricsOriginal;
     }
   
     @override
@@ -34,6 +34,16 @@ class SongDetailPresenter extends BasePresenter implements ISongDetailPresenter{
   @override
   void backToContext(BuildContext context) {
      Navigator.of(context).pop();
+  }
+
+  @override
+  String getSongLyricsTranscribed(TrendingSongsModel model) {
+      return model.songLyricsTranscribed;
+    }
+  
+    @override
+    String getSongLyricsTranslate(TrendingSongsModel model) {
+    return model.songLyricsTranslate;
   }
 
  
