@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var pageState = Provider.of<TrendingCardState>(context, listen: false);
-    PageController controller = PageController(initialPage: 0);
+    PageController controller = PageController(initialPage: initialPage);
     controller.addListener(() {
       pageState.updateIndex(controller.page);
         setState(() {
