@@ -12,7 +12,7 @@ class TopSongs extends StatelessWidget{
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                      color: topSong,
+                      color: Constants.topSong,
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Center(

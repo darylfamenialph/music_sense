@@ -14,7 +14,7 @@ class TitleTextWidget extends StatelessWidget{
       style: TextStyle(
         fontFamily: isBold ? "Nunito-Regular" : "Nunito-ExtraLight",
         fontSize: fontSize,
-        color: Colors.white,
+        color: Colors.black87,
       ),
 
     );

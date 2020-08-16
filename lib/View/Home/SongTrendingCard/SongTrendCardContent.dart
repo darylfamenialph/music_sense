@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:music_sense/Presenter/SongDetails/SongDetailPresenter.dart';
+import 'package:music_sense/View/SongDetails/SongDetailsLayout.dart';
 
-import '../../../Data/data.dart';
+
 import '../../Utilities/FrostedIconButton.dart';
 
 
 class SongDetailsWidget extends StatelessWidget{
-  final int titleIndex;
-  SongDetailsWidget({this.titleIndex});
+  final title;
+  final songModel;
+  //final int titleIndex;
+  SongDetailsWidget({@required this.title,@required this.songModel});
 
   @override
   Widget build(BuildContext context){
@@ -17,14 +21,11 @@ class SongDetailsWidget extends StatelessWidget{
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: 16.0, vertical: 8.0),
-            child: Text(title[titleIndex],
+            child: Text(title,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
                     fontFamily: "SF-Pro-Text-Regular")),
-          ),
-          SizedBox(
-            height: 10.0,
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -37,7 +38,12 @@ class SongDetailsWidget extends StatelessWidget{
               icon: Icon(FontAwesomeIcons.play,
                 color: Colors.blueGrey,),
               onPressed: () {
-                print("Play");
+                print("Play Clicked");
+               Navigator.push(context, MaterialPageRoute(
+                 builder: (context)  => SongDetailsLayout(
+                    presenter: SongDetailPresenter(),
+                    model: songModel,
+               )));
               }),
                 ),
             ),
@@ -45,5 +51,8 @@ class SongDetailsWidget extends StatelessWidget{
         ],
       );
   }
+
+
+
 
 }

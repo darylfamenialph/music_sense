@@ -8,18 +8,24 @@ var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class CardScrollWidget extends StatelessWidget {
+  
+  final presenter;
+
   final currentPage;
-  final images;
-  final title;
   final padding = 20.0;
   final verticalInset = 20.0;
+  final List<dynamic> songModel;
 
 
-  CardScrollWidget({@required this.currentPage, @required this.images, @required  this.title});
+
+  CardScrollWidget({@required this.presenter, @required this.currentPage, @required this.songModel});
+
+
 
   @override
   Widget build(BuildContext context) {
-    return new AspectRatio(
+    var titleArtList = presenter.convertToTitleArtMap(songModel).entries.toList();
+    return  AspectRatio(
       aspectRatio: widgetAspectRatio,
       child: LayoutBuilder(builder: (context, contraints) {
         double width = contraints.maxWidth;
@@ -36,7 +42,7 @@ class CardScrollWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = 0; i < images.length; i++) {
+        for (var i = 0; i < songModel.length; i++) {
           var delta = i - currentPage;
           bool isOnRight = delta > 0;
 
@@ -65,10 +71,10 @@ class CardScrollWidget extends StatelessWidget {
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
-                        Image.asset(images[i], fit: BoxFit.cover),
+                        Image.asset(titleArtList[i].value, fit: BoxFit.cover),
                         Align(
-                          alignment: Alignment.bottomLeft,
-                          child: SongDetailsWidget(titleIndex: i,),
+                          alignment: Alignment.bottomCenter,
+                          child: SongDetailsWidget(title: titleArtList[i].key, songModel: songModel,),
                         )
                       ],
                     ),
@@ -84,4 +90,5 @@ class CardScrollWidget extends StatelessWidget {
       }),
     );
   }
+
 }
