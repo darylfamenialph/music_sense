@@ -49,8 +49,7 @@ class _MyAppState extends State<MyApp> {
                   if(!snapshot.hasData)
                     return Center( child: new CircularProgressIndicator() );
                   else { 
-                    //setInitialData((snapshot.data.length - 1.0), (snapshot.data.length - 1), (snapshot.data.length - 1.0) );
-                   _imageLists = _presenter.getImageLists(snapshot.data);
+                  _imageLists = _presenter.getImageLists(snapshot.data);
                    _model = snapshot.data;
                   return Container(
                     decoration: BoxDecoration(
