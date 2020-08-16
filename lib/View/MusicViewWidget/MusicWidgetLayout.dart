@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:music_sense/Presenter/MusicList/MusicListPresenter.dart';
 import 'package:music_sense/View/MusicList/MusicListLayout.dart';
 import 'package:music_sense/View/Utilities/Constants.dart';
 import 'package:music_sense/View/Utilities/SizePreferences.dart';
@@ -73,7 +72,7 @@ class _ViewWidgetState extends State<ViewWidget> {
                       builder: (BuildContext context){
                         return  FlatButton(
                           onPressed: (){
-                             Navigator.push(context, MaterialPageRoute(builder: (context) => MusicListLayoutWidget(model: model)));
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => MusicListLayoutWidget(model: model, headerTitle: content,)));
                           },
                            padding: EdgeInsets.all(0.0),
                               child: Container(
@@ -118,13 +117,12 @@ class _ViewWidgetState extends State<ViewWidget> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    width: SizePreferences(context).GetMediaWidth() * 0.5,
+                    width: SizePreferences(context).getMediaWidth() * 0.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       color: Colors.white.withOpacity(0.1)
                     ),
                     child: FlatButton(
-                     // color: Colors.white.withOpacity(0.1),
                       child: Text("Back Home", style: TextStyle(color: Colors.black45),),
                       onPressed: (){
                         Navigator.of(context).pop();

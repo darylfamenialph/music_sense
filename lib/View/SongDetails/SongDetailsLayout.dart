@@ -31,7 +31,7 @@ class SongDetailsLayout extends StatelessWidget {
                Container(
                  padding: const EdgeInsets.only(top: 50.0),
                   width: double.infinity,
-                  height: SizePreferences(context).GetMediaHeight() * 0.4,
+                  height: SizePreferences(context).getMediaHeight() * 0.4,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30.0),
@@ -62,13 +62,12 @@ class SongDetailsLayout extends StatelessWidget {
               )
             ),
               Container(
-                      width: SizePreferences(context).GetMediaWidth() * 0.5,
+                      width: SizePreferences(context).getMediaWidth() * 0.5,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         color: Colors.white.withOpacity(0.2),
                       ),
                       child: FlatButton(
-                       // color: Colors.white.withOpacity(0.1),
                         child: Text("Back", style: TextStyle(color: Colors.white),),
                         onPressed: (){
                          presenter.backToContext(context);
@@ -137,7 +136,7 @@ class SongLyrics extends StatelessWidget{
     return Container(
       padding: const EdgeInsets.all(15.0),
       width: double.infinity,
-      height: SizePreferences(context).GetMediaHeight() * 0.4,
+      height: SizePreferences(context).getMediaHeight() * 0.4,
       child: Scrollbar(
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),

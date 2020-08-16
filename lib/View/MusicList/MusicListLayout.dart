@@ -6,15 +6,17 @@ import 'package:music_sense/View/Utilities/SizePreferences.dart';
 
 class MusicListLayoutWidget extends StatefulWidget{
   final List<dynamic> model;
-  MusicListLayoutWidget({@required this.model});
+  final headerTitle;
+  MusicListLayoutWidget({@required this.model, @required this.headerTitle});
   @override
-  _MusicListLayoutWidgetState createState() => _MusicListLayoutWidgetState(model: model);
+  _MusicListLayoutWidgetState createState() => _MusicListLayoutWidgetState(model: model, headerTitle: headerTitle);
 }
 
 class _MusicListLayoutWidgetState extends State<MusicListLayoutWidget> {
 
   final List<dynamic> model;
-  _MusicListLayoutWidgetState({@required this.model});
+  final headerTitle;
+  _MusicListLayoutWidgetState({@required this.model, @required this.headerTitle});
   
   List<dynamic> _model;
 
@@ -26,21 +28,33 @@ class _MusicListLayoutWidgetState extends State<MusicListLayoutWidget> {
 
   @override
   Widget build(BuildContext context){
-   // _model = model;
-     
+       print(headerTitle);
     return  Expanded(
               child: Container(
-                height: SizePreferences(context).GetMediaHeight() * 0.8,
+                height: SizePreferences(context).getMediaHeight() * 0.8,
                 color: Colors.white,
                     child: ReorderableListView(
                     header: Column(
                       children: [
-                        Container(
-                          color: Colors.grey[200],
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.only(top: 100.0, bottom: 10.0, left: 20.0),
-                          child: Text("My Playlist", textAlign: TextAlign.left, style: TextStyle(fontSize: 30, color: Colors.black54,fontFamily: "Nunito-Regular"), ),
-                        ),
+                            Container(
+                              color: Colors.grey[200],
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.only(top: 100.0, bottom: 10.0, left: 20.0),
+                              child: Row(
+                                
+                                children: [
+                                  FlatButton(
+                                    padding: EdgeInsets.only(left: 0, right: 50.0, bottom: 1.0, top: 1.0),
+                                    child: Icon(Icons.backspace, color: Colors.grey[800],),
+                                    onPressed: (){
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  SizedBox(width: 20.0,),
+                                  Text("My $headerTitle", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.black54,fontFamily: "Nunito-Regular"), ),
+                                ],
+                              ),
+                            ),
                         Align(
                         alignment: Alignment.topCenter,
                         child: Container(
