@@ -1,7 +1,9 @@
-# music_sense
+# Music Sense Harmony
 
 A simple and elegant music player made with Flutter.
-made for ZigZag by Kim Daryl Famenial(2020)
+
+## Coding Design Architecture
+This system was built using MVP pattern.
 
 
 
